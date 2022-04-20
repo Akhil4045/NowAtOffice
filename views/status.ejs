@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="public/output.css" rel="stylesheet">
+</head>
+<body class="">
+<%-include('templates/header'); -%>
+
+<main>
+  <% for(i= 0; i< rooms.length; i++) { %>
+    <div class="p-5">
+      <div class=" w-full lg:max-w-full lg:flex">
+        <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('public/images/room.jpg')" title="Mountain">
+        </div>
+        <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+          <div class="mb-8">
+            <p class="text-sm text-gray-600 flex items-center">
+              <%=rooms[i].room_id%>
+            </p>
+            <div class="text-gray-900 font-bold text-xl mb-2"><%= rooms[i].room_name%></div>
+          </div>
+          <div class="flex items-center">
+            <div class="text-sm">
+              <p class="text-gray-900 leading-none">Room Capacity: <%= rooms[i].room_capacity%></p>
+              <p class="text-gray-600">Room Active: <%= rooms[i].room_status%></p>
+            </div>
+          </div>
+          <% let resv = reservation.filter((x)=> {return x.room_id == rooms[i].room_id}); for(k =0; k< resv.length; k++) { %>
+          <div>
+            <p class="text-gray-900 leading-none">res_emp: <%= resv[k].res_emp%></p>
+            <p class="text-gray-600">time: <%= resv[k].res_start%> to <%= resv[k].res_end%> </p>
+            <p class="text-gray-600">res_agenda: <%= resv[k].res_agenda%></p>
+            <p class="text-gray-600">res_members: <%= resv[k].res_members.toString()%></p>
+          </div>
+          <%}%>
+        </div>
+      </div>
+    </div>
+    <%}%>
+</main>
+
+<%-include('templates/footer'); -%>
+
+</body>
+</html>

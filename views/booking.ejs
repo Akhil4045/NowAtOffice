@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="public/js/lib/jquery.js"></script>
+        <script type="text/javascript" src="public/js/booking.js"></script>
+        <link href="public/output.css" rel="stylesheet">
+        <link href="public/css/master.css" rel="stylesheet">
+    </head>
+    <body>
+        <%-include('templates/header'); -%>
+        <main>
+            <!--<% for(i= 0; i< rooms.length; i++) { %>
+            <div class="room_class" style="padding: 8px;margin: 8px;background: #fff; border: 1px solid;border-radius: 3px" >
+                <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+                    <img src="/public/images/room.jpg" alt="">
+                </div>               
+                <div>
+                    <p class="text-gray-900 leading-none"><%=rooms[i].room_id%></p>
+                    <p class="text-gray-900 leading-none"><%= rooms[i].room_name%></p>
+                    <p class="text-gray-900 leading-none">Room Capacity: <%= rooms[i].room_capacity%></p>
+                </div>
+                <div>
+                    <span room_name="<%= rooms[i].room_name%>" room_cp="<%= rooms[i].room_capacity%>" room_id="<%=rooms[i].room_id%>" class="btn" onclick="booking(this);">Book</span>
+                </div> 
+            </div>
+            <%}%> -->
+            <div class="book_class">
+                 <div>
+                    <h2 class="bk_head">Book a Room</h2>
+                 </div>
+                 <hr style="padding: 5px;">
+                 <div class="bk">
+                    <div class="bk_form" style="flex: 1 1;">
+                        <div>
+                            <label class="bk_label">Choose a room</label>
+                            <select class="bk_input bk_rooms" onchange="clearFillValue(this);"></select>
+                        </div>
+                        <div>
+                            <label class="bk_label">From Date-Time</label>
+                            <input type="datetime-local" onchange="clearFillValue(this);" on class="bk_input bk_stime">
+                        </div>
+                        <div>
+                            <label class="bk_label">To Date-Time</label>
+                            <input type="datetime-local" onchange="clearFillValue(this);" class=" bk_input bk_ttime">
+                        </div>
+                        <div>
+                            <label class="bk_label">Purpose of booking</label>
+                            <textarea class="bk_input bk_tarea" onchange="clearFillValue(this);" style="height: 80px;" rows="4" cols="50"></textarea>
+                        </div>
+                        <div style="display: flex;">
+                            <label class="bk_label">Team Members</label>
+                            <div class="bk_team"></div>
+                        </div>
+                    </div>
+                    <div class="bk_rm">
+                        <div style="padding: 10px;">
+                            <span class="bk_rm-name" style="color: red; font-weight: bold; margin-left: 5px; font-size: 16px;"></span>
+                            <span class="bk_rm-cp" style="float: right; margin-right: 10px;font-size: 14px;"></span>  
+                        </div>
+                        <hr style="padding: 5px;">
+                        <div style="padding: 10px;">
+                            <img class="bk_img" src="/public/images/room.jpg" alt="">
+                        </div style="padding: 10px;">
+                        <hr>
+                        <div style="padding: 5px;" class="bk_cbk">
+                            <p style ="text-align: center; color: red; margin-bottom: 5px;"> Today's booking</p>
+                            <div class="bk_cbk-tbk">
+
+                            </div>    
+                        </div>                          
+                    </div>
+                 </div>
+                 <hr style="padding: 5px;">
+                 <div class="bk_div-btn">
+                    <span class="bk_btn" style="background: #2e3033; border: 1px solid #a2a4ab;" onclick="bkSumbit(this);">Submit</span>
+                    <span class="bk_btn" style="background: #cbd1c4; border: 1px solid #a2a4ab; color: #000;" onclick="bkReset(this);">Reset</span>
+                 </div>   
+            </div>
+        </main>
+        <%-include('templates/footer'); -%>
+    </body>
+</html>

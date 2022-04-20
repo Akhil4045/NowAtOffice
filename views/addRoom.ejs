@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="public/js/lib/jquery.js"></script>
+        <script type="text/javascript" src="public/js/addRoom.js"></script>
+        <link href="public/output.css" rel="stylesheet">
+        <link href="public/css/master.css" rel="stylesheet">
+    </head>
+    <body>
+        <%-include('templates/header'); -%>
+        <main>
+            <div class="ar_room-create-div" style="height: 50px; padding: 10px">
+                <span class="ar_room-create" onclick="createRoom();">+ Create</span>
+            </div>
+            <hr padding="10px"/>
+            <div class="ar_room-main">
+                <% for(i= 0; i< rooms.length; i++) { %>           
+                    <div class="ar_room">
+                        <div style="padding: 5px;">
+                            <img class="ar_img" src="/public/images/room.jpg">
+                        </div>
+                        <div style="padding: 5px;">
+                            <p class="ar_room-name" style="text-align: center;font-weight: bold;"><%= rooms[i].room_name %></p>
+                            <span class="ar_room-id" style="padding: 2px;">Room Id : <%= rooms[i].room_id %></span>
+                            <span class="ar_room-cp" style="float: right;padding: 2px;">Room Count : <%= rooms[i].room_capacity %></span>
+                        </div>
+                        <div style="padding: 5px;">
+                            <span class="ar_room-del" room-id="<%=rooms[i].room_id %>" onclick="deleteRoom(this);">Delete</span>
+                            <span class="ar_room-toggle">
+                                <label class="ar_room-toggle-label" for="ar_room-toggle-checkbox<%=i%>"> 
+                                    <input type="checkbox" id="ar_room-toggle-checkbox<%=i%>" class="ar_room-toggle-checkbox-class" onchange="internalSupportView();">
+                                    <span class="ar_room-toggle-slider"></span>
+                                    <span class="ar_room-toggle-text"></span>
+                                </label>
+                            </span>
+                        </div>    
+                    </div>
+                <% } %>    
+            </div> 
+            <div class="popup-mask" style="display: none;"></div>
+            <div class="ar_room-popup" style="display: none;">
+                <div style="text-align: center; padding:10px; font-weight: bold;font-size: 17px;">
+                    <span>Create a Room</span>
+                    <div class="ar_room-close" onclick="addRoomClose();">&times;</div>
+                </div>
+                <hr>
+                <div style="padding:10px; display: flex;">
+                    <div class="ar_room-form" style="width: 70%;">
+                        <div>
+                            <label class="ar-label">Room Id</label>
+                            <input type="text" class="ar_room-Idtext" onchange="clearFillValue(this);">
+                        </div>
+                        <div>
+                            <label class="ar-label">Room Name</label>
+                            <input type="text" class="ar_room-nametext" onchange="clearFillValue(this);">
+                        </div>
+                        <div>
+                            <label class="ar-label">Room Capacity</label>
+                            <input type="text" class="ar_room-cptext" onchange="clearFillValue(this);">
+                        </div>
+                        <div>
+                            <label class="ar-label">Note</label>
+                            <textarea style="min-width: 250px;" class="ar-room-textarea" onchange="clearFillValue(this);"></textarea>
+                        </div>
+                        <div>
+                            <label class="ar-label">Add new photo</label>
+                            <input type="file" name="roomFile" id="roomFile" class="ar-roomFile" accept="image/png, image/jpeg" onchange="imageCoverter(this);">
+                        </div>
+                    </div>
+                    <div style="width: 30%; padding: 2px; display: flex;align-items: center;justify-content: center;">
+                        <img class="ar_room-img" style="object-fit: cover; display: block;" src="">
+                    </div>
+                </div>
+                <hr>
+                <div style="pad: 5px;text-align: center;">
+                    <span class="ar_room-sub ar_btn" onclick="addRoomSubmit();" style="background: #2e3033; border: 1px solid #a2a4ab;">Submit</span>
+                    <span class="ar_room-reset ar_btn" onclick="addRoomReset();" style="background: #cbd1c4; border: 1px solid #a2a4ab; color: #000;">Reset</span>
+                </div>
+            </div>          
+        </main>
+        <%-include('templates/footer'); -%>
+    </body>
+</html>

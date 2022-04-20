@@ -1,0 +1,314 @@
+input, select, textarea 
+{
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+input, select {
+    width: 250px;
+}
+
+.btn {
+    margin: 0;
+    padding: 3px;
+    margin-left: auto;
+    color: #fff;
+    background: #396dc2;
+    border: 1px solid #124ed7;
+}
+
+.bk_team-span {
+    padding: 3px;
+    margin: 2px 10px 6px 3px;
+    background: #F0F0F0;
+    border: 1px solid #C0C0C0;
+    border-radius: 3px;
+    float: left;
+    font-size: 0.8em;
+    cursor: pointer;
+    width: 90px;
+}
+
+.bk_team-span.selected {
+    background: #b9ddff;
+}
+
+.book_class { 
+    padding: 8px;
+    margin: 8px;
+}
+
+.bk_div-btn {
+    width: 50%;
+    text-align: center;
+}
+
+.bk_head {
+    font-weight: bold;
+    padding: 5px;
+    font-size: larger;
+}
+
+.bk_label {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.bk_input {
+    margin-top: 6px;
+}
+
+.bk {
+    display: flex;
+    padding: 10px;
+    height: 360px;
+}
+
+.bk_form div {
+    padding: 5px;
+}
+
+.bk_rm {
+    flex: 1 1;
+    border: 1px solid #d5cfcf;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.bk_img {
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.bk_team {
+    width: 395px;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 6px;
+    overflow-y: auto;
+}
+
+.bk_btn {
+    display: inline-block;
+    width: 75px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px !important;
+    color: #fff;
+    padding: 3px;
+}
+
+.bk_cbk-span {
+    border: 1px solid red;
+    border-radius: 3px;
+    padding: 3px;
+    color: red;
+    background: #F0F0F0;
+    margin: 2px 10px 6px 3px;
+    width: 140px;
+}
+
+.fillValue {
+    border: 1px solid red;
+}
+
+/* addRoom.ejs css */
+
+.ar_room {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 30%;
+}
+
+.ar_room-main {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 15px;
+}
+
+.ar_room-del {
+    color: #1bc4ba;
+    background-color: #eafaf7;
+    padding: 2px;
+    border: 1px solid #18e7ca;
+    border-radius: 30px;
+    display: inline-block;
+    width: 95px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.ar_room-toggle {
+    position: relative;
+    display: inline-block;
+    width: 95px;
+    height: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  .ar_room-toggle-checkbox-class {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .ar_room-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #eafaf7;
+    -webkit-transition: .3s;
+    transition: .3s;
+    border-radius: 30px;
+    border: 1px solid #18e7ca;
+  }
+  
+  .ar_room-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    right: 6px;
+    bottom: 6px;
+    background-color: #1677c9;
+    -webkit-transition: .3s;
+    transition: .3s;
+    border-radius: 30px;
+  }
+  
+  .ar_room-toggle-checkbox-class:checked + .ar_room-toggle-slider:before  {
+      background-color: #186d08;
+      right: 70px;
+  }
+
+  .ar_room-toggle-text {
+      position: absolute;
+      cursor: pointer;
+      top: 1px;
+      left: 5px;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      overflow: hidden;    
+      color: #29deef;
+      font-weight: 500;
+      font-size: 14px;
+      width: 60px;
+      -webkit-transition: .3s;
+      transition: .3s;
+  }
+  .ar_room-toggle-text:before,
+  .ar_room-toggle-text:after {
+      display: block;
+      content: '';
+      padding: 2px;
+      white-space: pre;
+  }
+  .ar_room-toggle-text:before{
+      content: 'Inactive';
+  }
+  .ar_room-toggle-text:after {
+      content: 'Active';
+      margin-left: 14px;
+  }
+  .ar_room-toggle-checkbox-class:checked ~ .ar_room-toggle-text {
+      left: 24px;
+  }
+  .ar_room-toggle-checkbox-class:checked ~ .ar_room-toggle-text:before {
+      margin-left: -50px;
+  }
+
+  .ar_room-create {
+    color: #1bc4ba;
+    background-color: #eafaf7;
+    padding: 2px;
+    border: 1px solid #18e7ca;
+    border-radius: 30px;
+    display: inline-block;
+    width: 95px;
+    text-align: center;
+    font-size: 14px;
+    height: 30px;
+    float: right;
+    margin-right: 20px;
+  }
+
+  /* add room css */
+
+  .ar_room-popup {
+    z-index: 100;
+    top: 25%;
+    left: 25%;
+    z-index: 200;
+    width: 700px;
+    height: 375px;
+    border-radius: 8px;
+    position: absolute;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  }
+
+  .ar_room-close {
+    background-color: #f4eded;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 30px;
+    line-height: 26px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+  }
+
+  .ar-label {
+    float: left;
+    width: 30%;
+    margin-top: 6px;
+ }
+ 
+ .ar_room-form div {
+     padding: 5px;
+ }
+
+ .ar_btn {
+    display: inline-block;
+    width: 75px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px !important;
+    color: #fff;
+    padding: 3px;
+    text-align: center;
+ }
+
+.popup-mask {
+    position: absolute;
+    top: 0;
+    background-color: #0c0b0b;
+    z-index: 20;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+}
